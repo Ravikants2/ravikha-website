@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knit & Bloom | Handcrafted Crochet Accessories</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        warmCream: '#FFFDF9',
+                        creamCard: '#FFFFFF',
+                        warmSand: '#F5EFE6',
+                        roseDust: '#EAD7CD',
+                        terracotta: '#D9777F',
+                        terracottaHover: '#C4626A',
+                        sage: '#788A72',
+                        goldenOchre: '#E0A053',
+                        charcoal: '#2C2A29',
+                        subdued: '#635E5B'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FFFDF9;
+            color: #2C2A29;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .glass-header {
+            background: rgba(255, 253, 249, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -8px rgba(217, 119, 127, 0.08);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 30px -10px rgba(217, 119, 127, 0.16);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-roseDust selection:text-charcoal">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-terracotta text-white text-xs md:text-sm py-2 px-4 text-center font-medium tracking-wide flex justify-center items-center gap-2">
+        <span>✨ Handcrafted Crochet Accessories</span>
+        <span class="hidden md:inline">•</span>
+        <span>📲 Direct Order on WhatsApp: <a href="tel:+918405818888" class="underline font-bold">+91 8405818888</a></span>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-30 glass-header border-b border-roseDust/60 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-2xl bg-roseDust/40 border border-terracotta/20 flex items-center justify-center text-terracotta text-2xl shadow-xs group-hover:scale-105 transition-transform">
+                    🧶
+                </div>
+                <div>
+                    <h1 class="font-serif text-2xl font-bold tracking-tight text-charcoal">Knit & Bloom</h1>
+                    <p class="text-[10px] tracking-widest text-terracotta uppercase font-bold">Artisan Hair & Craft Store</p>
+                </div>
+            </a>
+
+            <!-- Search Bar -->
+            <div class="flex-1 max-w-md mx-2 hidden sm:block">
+                <div class="relative">
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search clips, keychains, hair bands..." 
+                        class="w-full pl-10 pr-4 py-2.5 text-sm bg-warmSand/60 border border-roseDust rounded-full focus:outline-none focus:ring-2 focus:ring-terracotta/40 focus:bg-white transition-all placeholder:text-stone-400">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-stone-400 text-sm"></i>
+                </div>
+            </div>
+
+            <!-- Action Buttons: Cart & Admin Panel -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-full bg-warmSand/60 hover:bg-roseDust/50 text-charcoal transition-all border border-roseDust/50">
+                    <i class="fa-solid fa-bag-shopping text-lg text-terracotta"></i>
+                    <span id="cartBadge" class="absolute -top-1 -right-1 bg-terracotta text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+                </button>
+
+                <button onclick="toggleAdminModal()" class="px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-full border border-terracotta/30 text-terracotta bg-roseDust/30 hover:bg-terracotta hover:text-white transition-all flex items-center gap-2 shadow-2xs">
+                    <i class="fa-solid fa-sliders"></i>
+                    <span class="hidden md:inline">Admin Panel</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Search Input Bar -->
+        <div class="px-4 pb-3 sm:hidden">
+            <div class="relative">
+                <input type="text" id="searchInputMobile" oninput="handleSearchMobile()" placeholder="Search handmade crafts..." 
+                    class="w-full pl-10 pr-4 py-2 text-sm bg-warmSand/60 border border-roseDust rounded-full focus:outline-none focus:ring-2 focus:ring-terracotta/40 focus:bg-white">
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-stone-400 text-sm"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-warmSand/30 border-b border-roseDust/40 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-12 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="max-w-xl text-center md:text-left">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-roseDust/50 text-terracotta text-xs font-semibold rounded-full mb-3 border border-roseDust">
+                    <i class="fa-solid fa-sparkles text-[10px]"></i> Handcrafted Collection
+                </span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal leading-tight mb-4">
+                    Handwoven Elegance for Your Style
+                </h2>
+                <p class="text-subdued text-sm sm:text-base leading-relaxed mb-6">
+                    Hand-crocheted hair clips, boho braided hair bands, evil eye keychains, and pearl headpieces. Order directly on WhatsApp with customized quantities!
+                </p>
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
+                    <a href="#catalog" class="px-6 py-3 bg-terracotta hover:bg-terracottaHover text-white font-medium rounded-full text-sm shadow-sm transition-all flex items-center gap-2">
+                        <span>Browse Catalog</span>
+                        <i class="fa-solid fa-arrow-down text-xs"></i>
+                    </a>
+                    <a href="https://wa.me/918405818888?text=Hi%20Knit%20%26%20Bloom%2C%20I%20have%20a%20custom%20order%20query!" target="_blank" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-full text-sm shadow-sm transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Contact WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Features Highlights -->
+            <div class="grid grid-cols-3 gap-3 sm:gap-4 w-full md:w-auto">
+                <div class="bg-white p-4 rounded-2xl border border-roseDust/50 text-center shadow-2xs">
+                    <p class="text-xl sm:text-2xl font-serif font-bold text-terracotta">100%</p>
+                    <p class="text-xs text-subdued font-medium">Handmade</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-roseDust/50 text-center shadow-2xs">
+                    <p class="text-xl sm:text-2xl font-serif font-bold text-terracotta">+918405</p>
+                    <p class="text-xs text-subdued font-medium">818888</p>
+                </div>
+                <div class="bg-white p-4 rounded-2xl border border-roseDust/50 text-center shadow-2xs">
+                    <p class="text-xl sm:text-2xl font-serif font-bold text-terracotta">Custom</p>
+                    <p class="text-xs text-subdued font-medium">Orders</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <main id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1 w-full">
+        <!-- Category Filter Tabs -->
+        <div class="flex items-center justify-between flex-wrap gap-4 mb-8">
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 w-full sm:w-auto hide-scrollbar" id="categoryContainer">
+                <!-- Dynamically Populated Tabs -->
+            </div>
+            
+            <div class="text-xs text-subdued font-medium">
+                Showing <span id="itemCount" class="font-bold text-charcoal">0</span> items
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Product cards rendered dynamically -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-16">
+            <div class="w-16 h-16 bg-roseDust/40 text-terracotta rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                🌸
+            </div>
+            <h3 class="font-serif text-xl font-bold text-charcoal mb-1">No Accessories Found</h3>
+            <p class="text-subdued text-sm">Try searching for something else or pick a different category.</p>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-warmCream rounded-3xl max-w-3xl w-full overflow-hidden shadow-2xl border border-roseDust relative my-8">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 z-10 w-9 h-9 bg-white hover:bg-stone-100 text-stone-700 rounded-full flex items-center justify-center shadow-md transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="grid grid-cols-1 md:grid-cols-2">
+                <!-- Image Gallery Carousel View -->
+                <div class="bg-warmSand/50 p-6 flex flex-col justify-between">
+                    <div class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-xs bg-white mb-4 flex items-center justify-center">
+                        <img id="modalMainImage" src="" alt="Product Image" class="w-full h-full object-cover transition-all duration-300">
+                        <span id="modalBadge" class="absolute top-3 left-3 bg-terracotta text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Handmade
+                        </span>
+                    </div>
+
+                    <!-- Gallery Thumbnails -->
+                    <div id="modalThumbnails" class="flex gap-2 overflow-x-auto pb-1 hide-scrollbar">
+                        <!-- Dynamic Thumbnails -->
+                    </div>
+                </div>
+
+                <!-- Product Details Info -->
+                <div class="p-6 md:p-8 flex flex-col justify-between">
+                    <div>
+                        <span id="modalCategory" class="text-xs uppercase tracking-widest font-bold text-terracotta mb-1 block">Category</span>
+                        <h2 id="modalTitle" class="font-serif text-2xl sm:text-3xl font-bold text-charcoal mb-2">Product Name</h2>
+                        
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="text-2xl font-bold text-terracotta">₹<span id="modalPrice">0</span></span>
+                            <span class="text-xs text-subdued">per piece / pair</span>
+                        </div>
+
+                        <p id="modalDescription" class="text-subdued text-sm leading-relaxed mb-6">
+                            Hand-crafted with supreme care using soft premium yarn. Comfortable, durable, and designed to add a charming flourish to your hairstyle or accessories.
+                        </p>
+
+                        <!-- Quantity Selector -->
+                        <div class="mb-6 bg-white p-3.5 rounded-2xl border border-roseDust/60 flex items-center justify-between">
+                            <span class="text-xs font-semibold text-charcoal">Select Quantity:</span>
+                            <div class="flex items-center border border-roseDust rounded-xl overflow-hidden bg-warmSand/30">
+                                <button onclick="adjustModalQty(-1)" class="w-8 h-8 flex items-center justify-center text-charcoal hover:bg-roseDust/50 transition-all font-bold">-</button>
+                                <span id="modalQtyDisplay" class="w-10 text-center font-bold text-sm text-charcoal">1</span>
+                                <button onclick="adjustModalQty(1)" class="w-8 h-8 flex items-center justify-center text-charcoal hover:bg-roseDust/50 transition-all font-bold">+</button>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-subdued mb-6 flex justify-between font-medium">
+                            <span>Total Price:</span>
+                            <span class="font-bold text-terracotta text-sm">₹<span id="modalTotalPrice">0</span></span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <button onclick="triggerModalWhatsAppOrder()" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-2xl flex items-center justify-center gap-3 transition-all shadow-md">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Order on WhatsApp (+918405818888)</span>
+                        </button>
+                        <button onclick="addModalItemToCart()" class="w-full py-3 px-4 bg-terracotta hover:bg-terracottaHover text-white font-medium rounded-2xl flex items-center justify-center gap-2 transition-all">
+                            <i class="fa-solid fa-cart-plus"></i>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex justify-end">
+        <div class="bg-warmCream w-full max-w-md h-full flex flex-col justify-between shadow-2xl relative">
+            <!-- Header -->
+            <div class="p-5 border-b border-roseDust flex items-center justify-between bg-white">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-terracotta text-xl"></i>
+                    <h3 class="font-serif font-bold text-lg text-charcoal">Your Shopping Bag</h3>
+                </div>
+                <button onclick="toggleCartDrawer()" class="w-8 h-8 rounded-full bg-warmSand hover:bg-roseDust/50 flex items-center justify-center text-stone-600">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-5 space-y-4">
+                <!-- Dynamic Cart Items -->
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="p-5 border-t border-roseDust bg-white space-y-4">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-subdued">Subtotal:</span>
+                    <span class="font-bold text-lg text-terracotta">₹<span id="cartSubtotal">0</span></span>
+                </div>
+
+                <a id="cartCheckoutBtn" href="#" onclick="checkoutCartToWhatsApp(event)" class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-2xl flex items-center justify-center gap-2 transition-all shadow-md text-center">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Send Order to WhatsApp</span>
+                </a>
+                <p class="text-[11px] text-center text-stone-400">Order will be sent directly to +918405818888</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Management Panel Modal -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-warmCream rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-roseDust relative my-8 max-h-[90vh] flex flex-col">
+            <div class="flex items-center justify-between border-b border-roseDust pb-4 mb-6">
+                <div>
+                    <h2 class="font-serif text-xl sm:text-2xl font-bold text-charcoal">Store Management Panel</h2>
+                    <p class="text-xs text-subdued">Add products, upload photos, update prices and details.</p>
+                </div>
+                <button onclick="toggleAdminModal()" class="w-8 h-8 rounded-full bg-warmSand hover:bg-roseDust/50 flex items-center justify-center text-stone-600 transition-all">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="overflow-y-auto pr-1 space-y-6 flex-1">
+                <!-- Add / Edit Product Form -->
+                <form id="productForm" onsubmit="handleFormSubmit(event)" class="bg-white p-5 rounded-2xl border border-roseDust/60 shadow-2xs space-y-4">
+                    <h3 id="formHeading" class="font-bold text-charcoal text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-plus text-terracotta"></i>
+                        <span>Add New Crochet Item</span>
+                    </h3>
+                    <input type="hidden" id="formProductId" value="">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal mb-1">Item Title *</label>
+                            <input type="text" id="formTitle" required placeholder="e.g. White Daisy Clips (Pair)" 
+                                class="w-full px-3 py-2 text-sm bg-warmSand/30 border border-roseDust rounded-xl focus:ring-2 focus:ring-terracotta focus:outline-none">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal mb-1">Price (₹) *</label>
+                            <input type="number" id="formPrice" required placeholder="e.g. 50" min="0" 
+                                class="w-full px-3 py-2 text-sm bg-warmSand/30 border border-roseDust rounded-xl focus:ring-2 focus:ring-terracotta focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal mb-1">Category *</label>
+                            <select id="formCategory" class="w-full px-3 py-2 text-sm bg-warmSand/30 border border-roseDust rounded-xl focus:ring-2 focus:ring-terracotta focus:outline-none">
+                                <option value="Hair Clips">Hair Clips</option>
+                                <option value="Hair Accessories">Hair Accessories</option>
+                                <option value="Keychains">Keychains</option>
+                                <option value="Boho Bands">Boho Bands</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal mb-1">Badge Tag</label>
+                            <input type="text" id="formBadge" placeholder="e.g. Pair / Bestseller" 
+                                class="w-full px-3 py-2 text-sm bg-warmSand/30 border border-roseDust rounded-xl focus:ring-2 focus:ring-terracotta focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-charcoal mb-1">Description</label>
+                        <textarea id="formDescription" rows="2" placeholder="Briefly describe materials, colors, and features..." 
+                            class="w-full px-3 py-2 text-sm bg-warmSand/30 border border-roseDust rounded-xl focus:ring-2 focus:ring-terracotta focus:outline-none"></textarea>
+                    </div>
+
+                    <!-- Photo Upload Section -->
+                    <div class="border border-dashed border-roseDust rounded-xl p-4 bg-warmSand/20">
+                        <label class="block text-xs font-semibold text-charcoal mb-2">Product Images</label>
+                        
+                        <!-- Local File Upload Button -->
+                        <div class="flex items-center gap-2 mb-3">
+                            <label class="px-3.5 py-2 bg-roseDust/40 border border-terracotta/30 text-terracotta rounded-xl text-xs font-semibold cursor-pointer hover:bg-terracotta hover:text-white transition-all">
+                                <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Upload Image Files
+                                <input type="file" id="formFileInput" multiple accept="image/*" onchange="handleFileUpload(event)" class="hidden">
+                            </label>
+                            <span class="text-[11px] text-subdued">Supports .jpg, .png, .webp (Auto Base64)</span>
+                        </div>
+
+                        <!-- Image URLs Input -->
+                        <div>
+                            <label class="block text-[11px] text-stone-500 mb-1">Or Paste Image Web URLs (comma-separated)</label>
+                            <textarea id="formImages" rows="2" placeholder="https://image1.jpg, https://image2.jpg" 
+                                class="w-full px-3 py-2 text-xs bg-white border border-roseDust rounded-xl focus:ring-2 focus:ring-terracotta focus:outline-none" oninput="updateImagePreviewsFromInput()"></textarea>
+                        </div>
+
+                        <!-- Image Previews Container -->
+                        <div id="imagePreviews" class="flex flex-wrap gap-2 mt-3">
+                            <!-- Live image previews added here -->
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 pt-2">
+                        <button type="submit" class="flex-1 py-2.5 bg-terracotta hover:bg-terracottaHover text-white font-semibold text-sm rounded-xl transition-all shadow-2xs">
+                            <span id="formSubmitBtnText">Save Item to Store</span>
+                        </button>
+                        <button type="button" onclick="resetForm()" class="px-4 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-600 text-sm font-medium rounded-xl transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Reset Catalog Button & List -->
+                <div class="flex items-center justify-between border-t border-roseDust pt-4">
+                    <h3 class="font-bold text-charcoal text-sm">Current Catalog Items</h3>
+                    <button onclick="restoreDefaultProducts()" class="text-xs text-terracotta hover:underline font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-rotate-left"></i> Restore Default Guaranteed SVGs
+                    </button>
+                </div>
+
+                <div id="adminProductList" class="space-y-2">
+                    <!-- Admin item rows loaded dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-warmSand/60 border-t border-roseDust/50 mt-12 py-8 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-center gap-2 mb-3">
+                <span class="text-xl">🌸</span>
+                <span class="font-serif font-bold text-lg text-charcoal">Knit & Bloom</span>
+            </div>
+            <p class="text-xs text-subdued mb-3 max-w-md mx-auto">Crafted with care, yarn, and passion. Beautiful handmade accessories designed to elevate your everyday style.</p>
+            <p class="text-xs font-semibold text-terracotta mb-2">WhatsApp Orders: +918405818888</p>
+            <p class="text-[11px] text-stone-400">© 2026 Knit & Bloom Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-charcoal text-white px-5 py-3 rounded-2xl shadow-xl text-sm flex items-center gap-3 transition-all">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toastMessage">Action completed successfully.</span>
+    </div>
+
+    <script>
+        // Target WhatsApp Phone Number
+        const WHATSAPP_NUMBER = "918405818888";
+
+        // Embedded Guaranteed High-Res SVG Artwork Generator Functions
+        function makeDaisySVG() {
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"><rect width="300" height="300" fill="%23F5EFE6"/><g transform="translate(150,150)"><circle cx="-40" cy="-20" r="32" fill="%23FFFFFF" stroke="%23EAD7CD" stroke-width="2"/><circle cx="0" cy="-45" r="32" fill="%23FFFFFF" stroke="%23EAD7CD" stroke-width="2"/><circle cx="40" cy="-20" r="32" fill="%23FFFFFF" stroke="%23EAD7CD" stroke-width="2"/><circle cx="35" cy="35" r="32" fill="%23FFFFFF" stroke="%23EAD7CD" stroke-width="2"/><circle cx="-35" cy="35" r="32" fill="%23FFFFFF" stroke="%23EAD7CD" stroke-width="2"/><circle cx="0" cy="0" r="28" fill="%23E0A053"/><path d="M-50,80 L-50,120 L-30,100 Z" fill="%23788A72"/></g></svg>`;
+        }
+
+        function makeRedSunflowerSVG() {
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"><rect width="300" height="300" fill="%23FFFDF9"/><g transform="translate(150,150)"><circle cx="0" cy="0" r="80" fill="%23D9777F" stroke="%23C4626A" stroke-width="4"/><circle cx="0" cy="0" r="40" fill="%23FFFFFF"/><circle cx="0" cy="0" r="32" fill="%23FFFDF9" stroke="%23EAD7CD" stroke-dasharray="4,4"/></g></svg>`;
+        }
+
+        function makeLotusSVG() {
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"><rect width="300" height="300" fill="%23F5EFE6"/><path d="M150,70 C110,130 100,170 150,210 C200,170 190,130 150,70 Z" fill="%23E0A053"/><path d="M120,100 C90,140 90,170 130,200 C140,160 130,120 120,100 Z" fill="%23FFFFFF"/><path d="M180,100 C210,140 210,170 170,200 C160,160 170,120 180,100 Z" fill="%23FFFFFF"/><circle cx="150" cy="225" r="6" fill="%23FFFFFF"/><circle cx="150" cy="240" r="5" fill="%23FFFFFF"/></svg>`;
+        }
+
+        function makeEvilEyeSVG() {
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"><rect width="300" height="300" fill="%23F5EFE6"/><circle cx="150" cy="140" r="85" fill="%232D3748"/><circle cx="150" cy="140" r="65" fill="%23FFFFFF"/><circle cx="150" cy="140" r="45" fill="%23319795"/><circle cx="150" cy="140" r="22" fill="%232C2A29"/><path d="M145,225 L155,225 L155,270 L145,270 Z" fill="%23FFFFFF"/></svg>`;
+        }
+
+        function makeBunnySVG() {
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"><rect width="300" height="300" fill="%23FFFDF9"/><path d="M110,180 C80,80 120,60 130,160 Z" fill="%23D9777F" stroke="%23FFFFFF" stroke-width="8"/><path d="M190,180 C220,80 180,60 170,160 Z" fill="%23D9777F" stroke="%23FFFFFF" stroke-width="8"/><circle cx="150" cy="200" r="25" fill="%23FFFFFF"/></svg>`;
+        }
+
+        function makeBohoBandSVG() {
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"><rect width="300" height="300" fill="%23F5EFE6"/><circle cx="150" cy="60" r="25" fill="none" stroke="%232C2A29" stroke-width="8"/><path d="M135,80 L110,250 M145,80 L135,250 M155,80 L165,250 M165,80 L190,250" stroke="%23D9777F" stroke-width="6" stroke-dasharray="10,5"/><circle cx="110" cy="220" r="8" fill="%23FFFFFF"/><circle cx="165" cy="230" r="8" fill="%23FFFFFF"/></svg>`;
+        }
+
+        function makePearlChainSVG() {
+            return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300"><rect width="300" height="300" fill="%23FFFDF9"/><circle cx="70" cy="100" r="35" fill="%23D9777F"/><circle cx="230" cy="100" r="35" fill="%23D9777F"/><path d="M70,130 Q150,180 230,130" fill="none" stroke="%23E0A053" stroke-width="4"/><circle cx="110" cy="145" r="8" fill="%23FFFFFF"/><circle cx="150" cy="155" r="8" fill="%23FFFFFF"/><circle cx="190" cy="145" r="8" fill="%23FFFFFF"/></svg>`;
+        }
+
+        // Default Catalog Items
+        const defaultProducts = [
+            {
+                id: "prod-1",
+                title: "White Daisy Flower Hair Clips (Pair)",
+                price: 50,
+                category: "Hair Clips",
+                badge: "Pair",
+                images: [makeDaisySVG()],
+                description: "Hand-knitted pair of white daisies with soft yellow centers on comfortable hair clips."
+            },
+            {
+                id: "prod-2",
+                title: "Red & White Sunflower Hair Clips (Pair)",
+                price: 50,
+                category: "Hair Clips",
+                badge: "Bestseller",
+                images: [makeRedSunflowerSVG()],
+                description: "Vibrant red and white layered flower hair clips designed for everyday wear or festive styles."
+            },
+            {
+                id: "prod-3",
+                title: "Lotus Hair Accessory with Pearl Tassels",
+                price: 69,
+                category: "Hair Accessories",
+                badge: "Handcrafted",
+                images: [makeLotusSVG()],
+                description: "Delicate yellow and white crochet lotus headpiece complete with dangling pearl accents."
+            },
+            {
+                id: "prod-4",
+                title: "Crochet Evil Eye Keychain with Tassel",
+                price: 79,
+                category: "Keychains",
+                badge: "Popular",
+                images: [makeEvilEyeSVG()],
+                description: "Protective crochet evil eye ring charm finished with an artisan tassel."
+            },
+            {
+                id: "prod-5",
+                title: "Pink Rabbit Ear Hair Clip",
+                price: 99,
+                category: "Hair Clips",
+                badge: "Cute Pick",
+                images: [makeBunnySVG()],
+                description: "Soft pink rabbit ear hair clip with a centered flower stitch."
+            },
+            {
+                id: "prod-6",
+                title: "Boho Shell & Braided Hair Band",
+                price: 115,
+                category: "Boho Bands",
+                badge: "Boho Chic",
+                images: [makeBohoBandSVG()],
+                description: "Multi-colored braided hair band decorated with real cowrie shells and tassels."
+            },
+            {
+                id: "prod-7",
+                title: "Pearl Chain Flower Clip Set",
+                price: 115,
+                category: "Hair Accessories",
+                badge: "Trending",
+                images: [makePearlChainSVG()],
+                description: "Dual flower hair clips connected with an elegant string of pearl beads."
+            }
+        ];
+
+        // Store App State
+        let products = [];
+        let itemQuantities = {}; // Tracks quantity per product ID for catalog grid
+        let cart = []; // Shopping bag items: { id, title, price, qty, image }
+        let activeCategory = "All";
+        let searchQuery = "";
+        
+        let currentModalProduct = null;
+        let modalQty = 1;
+        let selectedModalImgIndex = 0;
+        
+        let uploadedImageStorage = [];
+
+        function initStore() {
+            const savedProducts = localStorage.getItem("knit_bloom_products_v3");
+            if (savedProducts) {
+                try {
+                    products = JSON.parse(savedProducts);
+                } catch(e) {
+                    products = defaultProducts;
+                }
+            } else {
+                products = defaultProducts;
+                saveToLocalStorage();
+            }
+
+            // Initialize grid quantities
+            products.forEach(p => {
+                itemQuantities[p.id] = 1;
+            });
+
+            renderCategories();
+            renderCatalog();
+            renderAdminProductList();
+            updateCartUI();
+        }
+
+        function restoreDefaultProducts() {
+            if (confirm("Restore original catalog default items? Any custom items added will be replaced.")) {
+                products = defaultProducts;
+                saveToLocalStorage();
+                initStore();
+                showToast("Default store catalog restored.");
+            }
+        }
+
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem("knit_bloom_products_v3", JSON.stringify(products));
+            } catch(e) {
+                console.warn("Storage warning", e);
+            }
+        }
+
+        function renderCategories() {
+            const categories = ["All", "Hair Clips", "Hair Accessories", "Keychains", "Boho Bands"];
+            const container = document.getElementById("categoryContainer");
+            
+            container.innerHTML = categories.map(cat => {
+                const isActive = cat === activeCategory;
+                const activeClasses = isActive 
+                    ? "bg-terracotta text-white shadow-xs font-semibold" 
+                    : "bg-white text-stone-600 hover:bg-warmSand border border-roseDust/60";
+                
+                return `
+                    <button onclick="setCategory('${cat}')" class="px-4 py-2 text-xs sm:text-sm rounded-full whitespace-nowrap transition-all ${activeClasses}">
+                        ${cat}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function setCategory(cat) {
+            activeCategory = cat;
+            renderCategories();
+            renderCatalog();
+        }
+
+        function handleSearch() {
+            searchQuery = document.getElementById("searchInput").value.toLowerCase();
+            document.getElementById("searchInputMobile").value = searchQuery;
+            renderCatalog();
+        }
+
+        function handleSearchMobile() {
+            searchQuery = document.getElementById("searchInputMobile").value.toLowerCase();
+            document.getElementById("searchInput").value = searchQuery;
+            renderCatalog();
+        }
+
+        // Adjust quantity directly on catalog product card
+        function changeQty(productId, delta) {
+            const current = itemQuantities[productId] || 1;
+            const updated = Math.max(1, current + delta);
+            itemQuantities[productId] = updated;
+            
+            const qtyElement = document.getElementById(`qty-${productId}`);
+            if (qtyElement) {
+                qtyElement.innerText = updated;
+            }
+
+            const item = products.find(p => p.id === productId);
+            if (item) {
+                const totalEl = document.getElementById(`total-price-${productId}`);
+                if (totalEl) {
+                    totalEl.innerText = item.price * updated;
+                }
+            }
+        }
+
+        function renderCatalog() {
+            const grid = document.getElementById("productGrid");
+            const emptyState = document.getElementById("emptyState");
+
+            const filtered = products.filter(item => {
+                const matchesCategory = activeCategory === "All" || item.category === activeCategory;
+                const matchesSearch = item.title.toLowerCase().includes(searchQuery) || 
+                                     (item.description && item.description.toLowerCase().includes(searchQuery));
+                return matchesCategory && matchesSearch;
+            });
+
+            document.getElementById("itemCount").innerText = filtered.length;
+
+            if (filtered.length === 0) {
+                grid.innerHTML = "";
+                emptyState.classList.remove("hidden");
+                return;
+            }
+
+            emptyState.classList.add("hidden");
+
+            grid.innerHTML = filtered.map(item => {
+                const primaryImage = item.images && item.images.length > 0 
+                    ? item.images[0] 
+                    : makeDaisySVG();
+                
+                const qty = itemQuantities[item.id] || 1;
+                const totalPrice = item.price * qty;
+
+                return `
+                    <div class="bg-creamCard rounded-3xl overflow-hidden border border-roseDust/60 card-shadow card-hover transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <!-- Product Image -->
+                            <div class="relative aspect-square overflow-hidden bg-warmSand/30 cursor-pointer flex items-center justify-center p-2" onclick="openProductModal('${item.id}')">
+                                <img src="${primaryImage}" alt="${item.title}" class="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500">
+                                
+                                ${item.badge ? `
+                                    <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-terracotta text-[10px] font-bold px-2.5 py-1 rounded-full shadow-2xs border border-roseDust/50">
+                                        ${item.badge}
+                                    </span>
+                                ` : ''}
+                            </div>
+
+                            <!-- Content -->
+                            <div class="p-4 sm:p-5">
+                                <div class="text-[10px] uppercase font-bold text-terracotta/80 tracking-wider mb-1">${item.category}</div>
+                                <h3 class="font-serif font-bold text-charcoal text-base sm:text-lg mb-2 line-clamp-1 hover:text-terracotta cursor-pointer" onclick="openProductModal('${item.id}')">
+                                    ${item.title}
+                                </h3>
+                                <p class="text-xs text-subdued line-clamp-2 mb-3 leading-relaxed">
+                                    ${item.description || 'Handcrafted crochet accessory.'}
+                                </p>
+
+                                <!-- Quantity Selector Control -->
+                                <div class="bg-warmSand/40 p-2.5 rounded-2xl border border-roseDust/50 flex items-center justify-between my-2">
+                                    <span class="text-[11px] font-semibold text-charcoal">Qty:</span>
+                                    <div class="flex items-center bg-white border border-roseDust rounded-xl overflow-hidden">
+                                        <button onclick="changeQty('${item.id}', -1)" class="w-7 h-7 flex items-center justify-center text-charcoal hover:bg-roseDust/50 font-bold text-xs">-</button>
+                                        <span id="qty-${item.id}" class="w-8 text-center font-bold text-xs text-charcoal">${qty}</span>
+                                        <button onclick="changeQty('${item.id}', 1)" class="w-7 h-7 flex items-center justify-center text-charcoal hover:bg-roseDust/50 font-bold text-xs">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price & Order Footer -->
+                        <div class="px-4 pb-5 sm:px-5 pt-0 space-y-2 border-t border-roseDust/30 pt-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-[10px] text-stone-400 uppercase tracking-wider">Total:</span>
+                                <span class="text-lg font-bold text-terracotta">₹<span id="total-price-${item.id}">${totalPrice}</span></span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="quickOrderWhatsApp('${item.id}')" class="py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-2xs">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i>
+                                    <span>WhatsApp</span>
+                                </button>
+
+                                <button onclick="addToCart('${item.id}')" class="py-2.5 px-3 bg-terracotta hover:bg-terracottaHover text-white text-xs font-semibold rounded-xl transition-all flex items-center justify-center gap-1">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <span>Add Cart</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Direct WhatsApp order from catalog card
+        function quickOrderWhatsApp(productId) {
+            const item = products.find(p => p.id === productId);
+            if (!item) return;
+
+            const qty = itemQuantities[productId] || 1;
+            const total = item.price * qty;
+
+            const text = `Hi Knit & Bloom! I want to order:\n\n*Product:* ${item.title}\n*Quantity:* ${qty}\n*Total Price:* ₹${total} (₹${item.price} each)\n\nPlease confirm availability and delivery details.`;
+
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Product Modal Handlers
+        function openProductModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            currentModalProduct = product;
+            modalQty = itemQuantities[productId] || 1;
+            selectedModalImgIndex = 0;
+
+            document.getElementById("modalTitle").innerText = product.title;
+            document.getElementById("modalPrice").innerText = product.price;
+            document.getElementById("modalCategory").innerText = product.category;
+            document.getElementById("modalBadge").innerText = product.badge || "Handcrafted";
+            document.getElementById("modalDescription").innerText = product.description || "Beautifully woven handmade crochet accessory.";
+
+            updateModalQtyDisplay();
+            updateModalImages();
+
+            document.getElementById("productModal").classList.remove("hidden");
+        }
+
+        function closeProductModal() {
+            document.getElementById("productModal").classList.add("hidden");
+        }
+
+        function adjustModalQty(delta) {
+            modalQty = Math.max(1, modalQty + delta);
+            updateModalQtyDisplay();
+        }
+
+        function updateModalQtyDisplay() {
+            document.getElementById("modalQtyDisplay").innerText = modalQty;
+            if (currentModalProduct) {
+                document.getElementById("modalTotalPrice").innerText = currentModalProduct.price * modalQty;
+            }
+        }
+
+        function updateModalImages() {
+            if (!currentModalProduct) return;
+
+            const images = currentModalProduct.images && currentModalProduct.images.length > 0 
+                ? currentModalProduct.images 
+                : [makeDaisySVG()];
+
+            const mainImg = document.getElementById("modalMainImage");
+            mainImg.src = images[selectedModalImgIndex];
+
+            const thumbsContainer = document.getElementById("modalThumbnails");
+            if (images.length > 1) {
+                thumbsContainer.innerHTML = images.map((img, idx) => `
+                    <button onclick="selectModalImg(${idx})" class="w-14 h-14 rounded-xl overflow-hidden border-2 transition-all shrink-0 ${idx === selectedModalImgIndex ? 'border-terracotta scale-95' : 'border-transparent opacity-70 hover:opacity-100'}">
+                        <img src="${img}" alt="Thumbnail" class="w-full h-full object-cover">
+                    </button>
+                `).join('');
+                thumbsContainer.classList.remove("hidden");
+            } else {
+                thumbsContainer.classList.add("hidden");
+            }
+        }
+
+        function selectModalImg(index) {
+            selectedModalImgIndex = index;
+            updateModalImages();
+        }
+
+        function triggerModalWhatsAppOrder() {
+            if (!currentModalProduct) return;
+            const total = currentModalProduct.price * modalQty;
+            const text = `Hi Knit & Bloom! I would like to order:\n\n*Product:* ${currentModalProduct.title}\n*Quantity:* ${modalQty}\n*Total Price:* ₹${total} (₹${currentModalProduct.price} each)\n\nPlease confirm availability and delivery!`;
+            
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        function addModalItemToCart() {
+            if (!currentModalProduct) return;
+            addToCart(currentModalProduct.id, modalQty);
+            closeProductModal();
+        }
+
+        // Cart Drawer Logic
+        function addToCart(productId, qtyOverride) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const qtyToAdd = qtyOverride || itemQuantities[productId] || 1;
+            const existing = cart.find(c => c.id === productId);
+
+            if (existing) {
+                existing.qty += qtyToAdd;
+            } else {
+                cart.push({
+                    id: product.id,
+                    title: product.title,
+                    price: product.price,
+                    qty: qtyToAdd,
+                    image: product.images[0] || makeDaisySVG()
+                });
+            }
+
+            updateCartUI();
+            showToast(`Added ${product.title} to your bag!`);
+        }
+
+        function updateCartQty(productId, delta) {
+            const item = cart.find(c => c.id === productId);
+            if (!item) return;
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(c => c.id !== productId);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            const cartSubtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            document.getElementById("cartBadge").innerText = cartCount;
+            document.getElementById("cartSubtotal").innerText = cartSubtotal;
+
+            const container = document.getElementById("cartItemsContainer");
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <p class="text-4xl mb-3">🛍️</p>
+                        <p class="font-bold text-charcoal">Your bag is empty</p>
+                        <p class="text-xs text-subdued mt-1">Browse our products and add your favorites!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between p-3 bg-white rounded-2xl border border-roseDust/60 shadow-2xs">
+                    <div class="flex items-center gap-3 overflow-hidden">
+                        <img src="${item.image}" class="w-12 h-12 rounded-xl object-cover bg-warmSand/30 shrink-0">
+                        <div class="truncate">
+                            <h4 class="font-bold text-xs text-charcoal truncate">${item.title}</h4>
+                            <p class="text-[11px] text-terracotta font-semibold">₹${item.price} x ${item.qty} = ₹${item.price * item.qty}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center border border-roseDust rounded-xl overflow-hidden bg-warmSand/20 shrink-0 ml-2">
+                        <button onclick="updateCartQty('${item.id}', -1)" class="w-6 h-6 flex items-center justify-center text-charcoal font-bold text-xs">-</button>
+                        <span class="w-6 text-center font-bold text-xs text-charcoal">${item.qty}</span>
+                        <button onclick="updateCartQty('${item.id}', 1)" class="w-6 h-6 flex items-center justify-center text-charcoal font-bold text-xs">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCartDrawer() {
+            document.getElementById("cartDrawer").classList.toggle("hidden");
+        }
+
+        function checkoutCartToWhatsApp(event) {
+            event.preventDefault();
+            if (cart.length === 0) {
+                alert("Your bag is empty!");
+                return;
+            }
+
+            let text = "Hi Knit & Bloom! I want to order the following items:\n\n";
+            let grandTotal = 0;
+
+            cart.forEach((item, index) => {
+                const total = item.price * item.qty;
+                grandTotal += total;
+                text += `${index + 1}. *${item.title}*\n   Qty: ${item.qty} | Price: ₹${total}\n`;
+            });
+
+            text += `\n*Grand Total: ₹${grandTotal}*\n\nPlease confirm availability and payment options!`;
+
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+
+        // Admin Panel Management Functions
+        function toggleAdminModal() {
+            const modal = document.getElementById("adminModal");
+            modal.classList.toggle("hidden");
+            if (!modal.classList.contains("hidden")) {
+                resetForm();
+                renderAdminProductList();
+            }
+        }
+
+        function handleFileUpload(event) {
+            const files = Array.from(event.target.files);
+            if (!files.length) return;
+
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImageStorage.push(e.target.result);
+                    renderImagePreviews();
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function updateImagePreviewsFromInput() {
+            renderImagePreviews();
+        }
+
+        function renderImagePreviews() {
+            const container = document.getElementById("imagePreviews");
+            const rawUrls = document.getElementById("formImages").value;
+            const urlList = rawUrls.split(",").map(u => u.trim()).filter(u => u.length > 0);
+
+            const allImages = [...uploadedImageStorage, ...urlList];
+
+            if (allImages.length === 0) {
+                container.innerHTML = `<span class="text-[11px] text-stone-400">No photos attached.</span>`;
+                return;
+            }
+
+            container.innerHTML = allImages.map((img, index) => `
+                <div class="relative w-14 h-14 rounded-lg overflow-hidden border border-roseDust/60 group">
+                    <img src="${img}" class="w-full h-full object-cover">
+                    <button type="button" onclick="removeImagePreview(${index})" class="absolute top-0 right-0 bg-red-600 text-white w-4 h-4 text-[9px] flex items-center justify-center rounded-bl">
+                        ×
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function removeImagePreview(index) {
+            if (index < uploadedImageStorage.length) {
+                uploadedImageStorage.splice(index, 1);
+            } else {
+                const rawUrls = document.getElementById("formImages").value;
+                let urlList = rawUrls.split(",").map(u => u.trim()).filter(u => u.length > 0);
+                const adjustedIndex = index - uploadedImageStorage.length;
+                urlList.splice(adjustedIndex, 1);
+                document.getElementById("formImages").value = urlList.join(", ");
+            }
+            renderImagePreviews();
+        }
+
+        function renderAdminProductList() {
+            const container = document.getElementById("adminProductList");
+            
+            if (products.length === 0) {
+                container.innerHTML = `<p class="text-xs text-stone-400 py-2">No items in store.</p>`;
+                return;
+            }
+
+            container.innerHTML = products.map(item => `
+                <div class="flex items-center justify-between p-3 bg-white rounded-xl border border-roseDust/60 shadow-2xs hover:bg-warmSand/20 transition-all">
+                    <div class="flex items-center gap-3 overflow-hidden">
+                        <img src="${item.images[0] || makeDaisySVG()}" class="w-10 h-10 rounded-lg object-cover bg-stone-100 shrink-0">
+                        <div class="truncate">
+                            <h4 class="font-bold text-xs text-charcoal truncate">${item.title}</h4>
+                            <p class="text-[11px] text-subdued">₹${item.price} • ${item.category}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-1 shrink-0">
+                        <button onclick="editProduct('${item.id}')" class="w-8 h-8 rounded-lg text-terracotta hover:bg-roseDust/40 flex items-center justify-center text-xs transition-all" title="Edit">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button onclick="deleteProduct('${item.id}')" class="w-8 h-8 rounded-lg text-red-500 hover:bg-red-50 flex items-center justify-center text-xs transition-all" title="Delete">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function resetForm() {
+            document.getElementById("formProductId").value = "";
+            document.getElementById("formTitle").value = "";
+            document.getElementById("formPrice").value = "";
+            document.getElementById("formCategory").value = "Hair Clips";
+            document.getElementById("formBadge").value = "";
+            document.getElementById("formDescription").value = "";
+            document.getElementById("formImages").value = "";
+            document.getElementById("formFileInput").value = "";
+            uploadedImageStorage = [];
+            
+            document.getElementById("formHeading").innerHTML = `<i class="fa-solid fa-plus text-terracotta"></i> <span>Add New Crochet Item</span>`;
+            document.getElementById("formSubmitBtnText").innerText = "Save Item to Store";
+            renderImagePreviews();
+        }
+
+        function editProduct(id) {
+            const item = products.find(p => p.id === id);
+            if (!item) return;
+
+            document.getElementById("formProductId").value = item.id;
+            document.getElementById("formTitle").value = item.title;
+            document.getElementById("formPrice").value = item.price;
+            document.getElementById("formCategory").value = item.category;
+            document.getElementById("formBadge").value = item.badge || "";
+            document.getElementById("formDescription").value = item.description || "";
+            
+            uploadedImageStorage = (item.images || []).filter(img => img.startsWith("data:"));
+            const urlImages = (item.images || []).filter(img => !img.startsWith("data:"));
+            
+            document.getElementById("formImages").value = urlImages.join(", ");
+            
+            document.getElementById("formHeading").innerHTML = `<i class="fa-solid fa-pen-to-square text-terracotta"></i> <span>Edit Product Details</span>`;
+            document.getElementById("formSubmitBtnText").innerText = "Update Item";
+            renderImagePreviews();
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const id = document.getElementById("formProductId").value;
+            const title = document.getElementById("formTitle").value.trim();
+            const price = parseFloat(document.getElementById("formPrice").value);
+            const category = document.getElementById("formCategory").value;
+            const badge = document.getElementById("formBadge").value.trim();
+            const description = document.getElementById("formDescription").value.trim();
+
+            const rawUrls = document.getElementById("formImages").value;
+            const urlList = rawUrls.split(",").map(u => u.trim()).filter(u => u.length > 0);
+
+            const allImages = [...uploadedImageStorage, ...urlList];
+            const finalImages = allImages.length > 0 ? allImages : [makeDaisySVG()];
+
+            if (id) {
+                const idx = products.findIndex(p => p.id === id);
+                if (idx !== -1) {
+                    products[idx] = {
+                        ...products[idx],
+                        title,
+                        price,
+                        category,
+                        badge,
+                        description,
+                        images: finalImages
+                    };
+                    showToast("Product updated!");
+                }
+            } else {
+                const newItem = {
+                    id: "prod-" + Date.now(),
+                    title,
+                    price,
+                    category,
+                    badge,
+                    description,
+                    images: finalImages
+                };
+                products.unshift(newItem);
+                itemQuantities[newItem.id] = 1;
+                showToast("New item added to catalog!");
+            }
+
+            saveToLocalStorage();
+            resetForm();
+            renderCatalog();
+            renderAdminProductList();
+        }
+
+        function deleteProduct(id) {
+            if (confirm("Are you sure you want to delete this product?")) {
+                products = products.filter(p => p.id !== id);
+                saveToLocalStorage();
+                renderCatalog();
+                renderAdminProductList();
+                showToast("Item deleted.");
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById("toast");
+            document.getElementById("toastMessage").innerText = msg;
+            toast.classList.remove("hidden");
+
+            setTimeout(() => {
+                toast.classList.add("hidden");
+            }, 3000);
+        }
+
+        window.onload = function() {
+            initStore();
+        };
+    </script>
+</body>
+</html>

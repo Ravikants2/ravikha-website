@@ -1,0 +1,271 @@
+[
+  {
+    "id": "rav-001",
+    "title": "Daisy Flower Hair Clips (Pair)",
+    "price": 50,
+    "category": "Hair Clips",
+    "badge": "Pair",
+    "description": "Handcrafted pair of dainty daisy flower clips woven with premium milk cotton yarn. Features a snug alligator grip backing gentle on hair.",
+    "images": [
+      "images/uploads/50- pair _p2.jpeg",
+      "images/uploads/50- pair.jpeg"
+    ]
+  },
+  {
+    "id": "rav-002",
+    "title": "Red Sunflower Hair Clips (Pair)",
+    "price": 50,
+    "category": "Hair Clips",
+    "badge": "Bestseller",
+    "description": "Vibrant two-tone crimson and cream sunflower clips. Hand-knitted with intricate petal detailing to brighten up any hairstyle.",
+    "images": [
+      "images/uploads/Sunflower hair clip 50- pair.jpeg",
+      "images/uploads/50- pair.jpeg"
+    ]
+  },
+  {
+    "id": "rav-003",
+    "title": "Lotus Hair Pin with Pearl Tassels",
+    "price": 69,
+    "category": "Hair Accessories",
+    "badge": "Trending",
+    "description": "Exquisite hand-crocheted blooming lotus pin accentuated with delicate cascading faux-pearl tassel drops for festive elegance.",
+    "images": [
+      "images/uploads/69.jpeg"
+    ]
+  },
+  {
+    "id": "rav-004",
+    "title": "Crochet Evil Eye Charm Keychain",
+    "price": 79,
+    "category": "Keychains",
+    "badge": "Popular",
+    "description": "Artisan crochet Nazar evil eye protection amulet with silver-toned key ring, sturdy clasp, and matching bohemian yarn tassel.",
+    "images": [
+      "images/uploads/79- evil eye Keychain.jpeg"
+    ]
+  },
+  {
+    "id": "rav-005",
+    "title": "Pink Rabbit Ear Hair Clip",
+    "price": 99,
+    "category": "Hair Clips",
+    "badge": "Cute Pick",
+    "description": "Sweet pastel pink bunny ears clip accented with an adorable micro flower bud. Soft on sensitive scalps, ideal for kids & cute aesthetics.",
+    "images": [
+      "images/uploads/99- rabit clip single piece.jpeg"
+    ]
+  },
+  {
+    "id": "rav-006",
+    "title": "Multi-Colored Boho Braided Hair Band",
+    "price": 115,
+    "category": "Boho Bands",
+    "badge": "Boho Chic",
+    "description": "Chic bohemian braided band hand-stitched with vibrant colored yarn chords, authentic natural cowrie shells, and gentle elastic base.",
+    "images": [
+      "images/uploads/115- Boho rubber band.jpeg",
+      "images/uploads/115- Boho rubber band_part 2.jpeg"
+    ]
+  },
+  {
+    "id": "rav-007",
+    "title": "Pink Cat Ear Clips (Pair)",
+    "price": 115,
+    "category": "Hair Clips",
+    "badge": "New",
+    "description": "Playful crochet kitten ear hair accessories. Meticulously shaped and stuffed for 3D bounce, perfect for fun casual wear or cosplays.",
+    "images": [
+      "images/uploads/115- cat hair clip.jpeg"
+    ]
+  },
+  {
+    "id": "rav-008",
+    "title": "Pearl & Cowrie Shell Hair Chain Clip",
+    "price": 115,
+    "category": "Hair Accessories",
+    "badge": "Elegant",
+    "description": "A pair of hand-woven blossom hair clips bridged by an ethereal draped strand of luminous pearls and cowrie shells.",
+    "images": [
+      "images/uploads/115.jpeg",
+      "images/uploads/115_p2.jpeg"
+    ]
+  },
+  {
+    "id": "rav-009",
+    "title": "Bow Tulip Flower Hair Clip",
+    "price": 135,
+    "category": "Hair Clips",
+    "badge": "Floral Love",
+    "description": "Artisan tulip blossom nestled alongside a soft crocheted ribbon bow. Adds a refined romantic touch to half-up styles.",
+    "images": [
+      "images/uploads/Bow tulip clip 135.jpeg"
+    ]
+  },
+  {
+    "id": "rav-010",
+    "title": "Tulip Pear Paranda (8 Tulips)",
+    "price": 580,
+    "category": "Hair Accessories",
+    "badge": "Festive Choice",
+    "description": "Traditional braided hair paranda adorned with 8 lush hand-knitted 3D tulip blossoms and pearl beads. Perfect for festive weddings and celebrations.",
+    "images": [
+      "images/uploads/Tulip Pear Paranda (8 tulips) 580.jpeg"
+    ]
+  },
+  {
+    "id": "rav-011",
+    "title": "Star Crochet Charm Keychain",
+    "price": 99,
+    "category": "Keychains",
+    "badge": "Cute Gift",
+    "description": "Plump plush crochet pastel star charm fitted with a durable golden lobster clasp. Brightens up your bag, tote, or vehicle keys.",
+    "images": [
+      "images/uploads/Star Keychain (single) 99.jpeg"
+    ]
+  },
+  {
+    "id": "rav-012",
+    "title": "Sunshine Sunflower Keychain",
+    "price": 65,
+    "category": "Keychains",
+    "badge": "Bestseller",
+    "description": "Cheerful golden sunflower keychain with emerald leaf accent. Handcrafted with warm sunny yarn to bring smiles wherever you go.",
+    "images": [
+      "images/uploads/Sunflower Keychain 65.jpeg"
+    ]
+  },
+  {
+    "id": "rav-013",
+    "title": "Morepankh Peacock Feather Pin",
+    "price": 50,
+    "category": "Hair Accessories",
+    "badge": "Traditional",
+    "description": "Auspicious Lord Krishna-inspired Morpankh peacock feather pin hand-crocheted in rich royal blue, turquoise, and gold hues.",
+    "images": [
+      "images/uploads/Morepankh 50.jpeg"
+    ]
+  },
+  {
+    "id": "rav-014",
+    "title": "Kitty Face Hair Clips (Pair)",
+    "price": 110,
+    "category": "Hair Clips",
+    "badge": "Cute Pick",
+    "description": "Adorable duo of kitten face hair pins detailed with whiskers, nose stitch, and pink inner ears. Super comfortable for all day wear.",
+    "images": [
+      "images/uploads/Kitty clip 110- pair.jpeg"
+    ]
+  },
+  {
+    "id": "rav-015",
+    "title": "Angry Bird Expressive Hair Clip",
+    "price": 70,
+    "category": "Hair Clips",
+    "badge": "Quirky",
+    "description": "Feisty and humorous crochet red bird character clip. Great conversation starter and adorable fun gift for friends.",
+    "images": [
+      "images/uploads/Angry clip 70 single piece.jpeg"
+    ]
+  },
+  {
+    "id": "rav-016",
+    "title": "Handcrafted Floral Crochet Bandana",
+    "price": 360,
+    "category": "Hair Accessories",
+    "badge": "Boho Chic",
+    "description": "Retro aesthetic triangular hair kerchief bandana hand-stitched with open lace-work floral granny squares and secure tie straps.",
+    "images": [
+      "images/uploads/Bandana 360.jpeg"
+    ]
+  },
+  {
+    "id": "rav-017",
+    "title": "Mini Forever Rose & Tulip Bouquet",
+    "price": 199,
+    "category": "Home & Decor",
+    "badge": "Everlasting",
+    "description": "Artisan miniature crochet floral bouquet that never withers. Wrapped in premium boutique craft paper and satin ribbon.",
+    "images": [
+      "images/uploads/Mini propose bouquet 199.jpeg"
+    ]
+  },
+  {
+    "id": "rav-018",
+    "title": "Fruit Coaster Set with Crochet Flower Pot",
+    "price": 480,
+    "category": "Home & Decor",
+    "badge": "Boutique Home",
+    "description": "Set of 4 handmade fruit slice coasters (citrus/apple/watermelon) that neatly fold together inside an adorable crocheted plant pot holder.",
+    "images": [
+      "images/uploads/Coaster with pot 480.jpeg",
+      "images/uploads/380-  fruit coaster.jpeg"
+    ]
+  },
+  {
+    "id": "rav-019",
+    "title": "Vintage Style Crochet Coin Pouch",
+    "price": 170,
+    "category": "Accessories",
+    "badge": "Handy",
+    "description": "Charming retro kiss-lock metal frame coin purse knitted with dense textured yarn. Perfect for coins, earrings, or small trinkets.",
+    "images": [
+      "images/uploads/170- coin pouch.jpeg"
+    ]
+  },
+  {
+    "id": "rav-020",
+    "title": "Mobile Phone Crochet Crossbody Sling Pouch",
+    "price": 410,
+    "category": "Accessories",
+    "badge": "Everyday Carry",
+    "description": "Lightweight, shock-absorbing smartphone pouch hand-knitted with a long comfy shoulder strap and wooden button closure.",
+    "images": [
+      "images/uploads/410- mobile pouch.jpeg"
+    ]
+  },
+  {
+    "id": "rav-021",
+    "title": "Puff Flower Handcrafted Mini Tote",
+    "price": 780,
+    "category": "Accessories",
+    "badge": "Luxury Craft",
+    "description": "Statement boutique handbag made of 3D puff flowers stitched seamlessly. Includes reinforced handles and soft inner lining.",
+    "images": [
+      "images/uploads/Puff flower hand bag 780.jpeg"
+    ]
+  },
+  {
+    "id": "rav-022",
+    "title": "Super Soft Crochet Newborn Socks",
+    "price": 449,
+    "category": "Accessories",
+    "badge": "Pure Softness",
+    "description": "Ultra gentle, hypoallergenic baby booties knitted with skin-friendly merino-blend yarn. Soft stretch ribbed cuffs keep them securely on tiny feet.",
+    "images": [
+      "images/uploads/Socks 449.jpeg"
+    ]
+  },
+  {
+    "id": "rav-023",
+    "title": "Artisan Fruit Table Runner",
+    "price": 1999,
+    "category": "Home & Decor",
+    "badge": "Statement Piece",
+    "description": "Grand handmade dining runner adorned with colorful crochet fruit motifs along scalloped edges. Brings warmth to any dining space.",
+    "images": [
+      "images/uploads/Fruit table runner 1999.jpeg"
+    ]
+  },
+  {
+    "id": "rav-024",
+    "title": "Handmade 1st Birthday Keepsake Set",
+    "price": 2500,
+    "category": "Accessories",
+    "badge": "Heirloom Edition",
+    "description": "Comprehensive heirloom-quality birthday set including handcrafted crown, cake topper, and celebration accessories crafted with supreme care.",
+    "images": [
+      "images/uploads/Age 1yr 2500.jpeg"
+    ]
+  }
+]
