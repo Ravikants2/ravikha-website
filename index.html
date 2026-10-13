@@ -545,8 +545,56 @@
                 </div>
             </div>
 
-            <!-- Admin Modal Body -->
-            <div class="p-5 sm:p-6 overflow-y-auto space-y-6">
+            <!-- View 1: Admin Password Authentication View -->
+            <div id="adminAuthView" class="p-6 sm:p-10 flex flex-col items-center justify-center text-center">
+                <div class="w-16 h-16 rounded-3xl bg-terracottaLight text-terracotta flex items-center justify-center text-2xl shadow-xs mb-4">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <h4 class="font-serif text-2xl font-bold text-charcoal mb-1">Admin Authentication</h4>
+                <p class="text-xs text-subdued max-w-sm mb-6 leading-relaxed">
+                    Please enter the admin password to manage products, upload photos, and sync directly with GitHub.
+                </p>
+
+                <form onsubmit="handleAdminLogin(event)" class="w-full max-w-sm space-y-4">
+                    <div class="relative">
+                        <input type="password" id="adminPasswordInput" required placeholder="Enter admin password" 
+                            class="w-full pl-4 pr-11 py-3 text-xs sm:text-sm bg-linen/50 border border-warmBorder rounded-2xl focus:outline-none focus:ring-2 focus:ring-terracotta/40 focus:bg-white transition-all">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3.5 top-3.5 text-subdued hover:text-charcoal text-sm">
+                            <i id="passwordEyeIcon" class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+
+                    <div id="adminPasswordError" class="hidden text-xs text-rose-600 bg-rose-50 border border-rose-200 rounded-xl py-2 px-3 text-center">
+                        <i class="fa-solid fa-circle-exclamation mr-1"></i>
+                        <span>Incorrect password. Please try again.</span>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full py-3 bg-terracotta hover:bg-terracottaHover text-white text-xs sm:text-sm font-semibold rounded-2xl transition-all shadow-md shadow-terracotta/20 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-unlock text-xs"></i>
+                        <span>Unlock Admin Portal</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- View 2: Protected Admin Dashboard View -->
+            <div id="adminDashboardView" class="hidden p-5 sm:p-6 overflow-y-auto space-y-6">
+                
+                <!-- Session Active Bar with Logout Button -->
+                <div class="flex items-center justify-between p-3.5 bg-emerald-50/70 border border-emerald-200 rounded-2xl">
+                    <div class="flex items-center gap-2.5">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <div>
+                            <span class="text-xs font-bold text-emerald-900 block sm:inline">Admin Session Active</span>
+                            <span class="text-[11px] text-emerald-700 hidden sm:inline">• GitHub Token Unlocked</span>
+                        </div>
+                    </div>
+                    <button type="button" onclick="handleAdminLogout()" 
+                        class="px-3.5 py-1.5 bg-white hover:bg-rose-50 text-rose-600 border border-rose-200 rounded-xl text-xs font-semibold transition-colors flex items-center gap-1.5 shadow-2xs">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <span>Log Out</span>
+                    </button>
+                </div>
 
                 <!-- Section 1: GitHub REST API Sync Settings -->
                 <div class="bg-linen/50 rounded-2xl p-4 border border-warmBorder">
