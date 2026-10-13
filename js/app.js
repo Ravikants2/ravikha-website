@@ -296,6 +296,15 @@ function safeImageUrl(url) {
 }
 
 /**
+ * Global fallback handler for broken or missing images to prevent HTML attribute injection
+ */
+function handleImageError(img) {
+    if (!img) return;
+    img.onerror = null;
+    img.src = PLACEHOLDER_SVG;
+}
+
+/**
  * Initialize Application
  */
 async function initApp() {
@@ -498,7 +507,7 @@ function renderCatalog() {
                              alt="${item.title}" 
                              id="card-img-${item.id}"
                              loading="lazy"
-                             onerror="this.onerror=null; this.src='${PLACEHOLDER_SVG}';"
+                             onerror="handleImageError(this)"
                              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
 
                         <!-- Badge Tag -->
@@ -764,7 +773,7 @@ function updateModalImageGallery() {
             thumbnailsContainer.innerHTML = images.map((imgUrl, idx) => `
                 <button onclick="selectModalImage(${idx})" 
                     class="w-14 h-14 rounded-xl overflow-hidden border-2 transition-all shrink-0 ${idx === state.modalImgIndex ? 'border-terracotta ring-2 ring-terracotta/30 scale-105' : 'border-warmBorder opacity-70 hover:opacity-100'}">
-                    <img src="${safeImageUrl(imgUrl)}" alt="thumb" class="w-full h-full object-cover" onerror="this.src='${PLACEHOLDER_SVG}'">
+                    <img src="${safeImageUrl(imgUrl)}" alt="thumb" class="w-full h-full object-cover" onerror="handleImageError(this)">
                 </button>
             `).join("");
         } else {
@@ -963,7 +972,7 @@ function updateCartUI() {
             <div class="flex items-center gap-3 overflow-hidden">
                 <img src="${item.image}" alt="${item.title}" 
                     class="w-14 h-14 rounded-xl object-cover bg-linen/50 shrink-0" 
-                    onerror="this.src='${PLACEHOLDER_SVG}'">
+                    onerror="handleImageError(this)">
                 <div class="truncate">
                     <h4 class="font-bold text-xs text-charcoal truncate" title="${item.title}">${item.title}</h4>
                     <p class="text-[11px] text-terracotta font-semibold mt-0.5">
@@ -1293,7 +1302,7 @@ function renderAdminImagePreviews() {
 
     container.innerHTML = allImages.map(img => `
         <div class="relative w-16 h-16 rounded-xl overflow-hidden border border-warmBorder group shrink-0">
-            <img src="${img.src}" class="w-full h-full object-cover" onerror="this.src='${PLACEHOLDER_SVG}'">
+            <img src="${img.src}" class="w-full h-full object-cover" onerror="handleImageError(this)">
             ${img.type === "local" ? `
                 <button type="button" onclick="removePendingFile(${img.idx})" 
                     class="absolute top-1 right-1 w-5 h-5 bg-rose-600 text-white rounded-full flex items-center justify-center text-[10px] shadow-xs">
@@ -1502,7 +1511,7 @@ function renderAdminProductList() {
         return `
             <div class="flex items-center justify-between p-3 bg-white rounded-2xl border border-warmBorder shadow-2xs hover:border-terracotta/40 transition-colors">
                 <div class="flex items-center gap-3 overflow-hidden">
-                    <img src="${thumb}" class="w-11 h-11 rounded-xl object-cover bg-linen/50 shrink-0" onerror="this.src='${PLACEHOLDER_SVG}'">
+                    <img src="${thumb}" class="w-11 h-11 rounded-xl object-cover bg-linen/50 shrink-0" onerror="handleImageError(this)">
                     <div class="truncate">
                         <h4 class="font-bold text-xs text-charcoal truncate">${p.title}</h4>
                         <div class="flex items-center gap-2 mt-0.5">
